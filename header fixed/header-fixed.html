@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ 
+	
+
+</head>
+
+<body  >
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript">
+
+
+var response = '[{ "rank":"9", "content":"Alon", "UID":"5" }, { "rank":"6",  "content":"Tala", "UID":"6" }]';
+
+// convert string to JSON
+response = $.parseJSON(response);
+
+$(function() {
+    $.each(response, function(i, item) {
+        var $tr = $('<tr>').append(
+            $('<td>').text(item.rank),
+            $('</td><td>').text(item.content),
+            $('</td><td>').text(item.UID),'</tr>'
+        ); //.appendTo('#records_table');
+        console.log($tr.wrap('<p>').html());
+    });
+});
+
+
+
+
+	function t(selectObject) {
+    var val = selectObject.value;  
+
+    	//recherche des données dans la base
+ 
+    var jsonobj={1:val+"text1", 2:val+"text2" , 3:val+"text3" };   //construction de l'objet
+    console.log(jsonobj);
+    $("#result").empty();
+    for(i in jsonobj)
+    $("#result").append("<tr><td>"+jsonobj[i]+"</td></tr>");
+
+ 
+
+		}
+		 
+	</script> 
+
+
+
+<select id="comboA" onchange="t(this);" size="5">
+<option value="">Select combo</option>
+<option value="photothque">photothque</option>
+<option value="biblio">biblio</option>
+<option value="audio">audio</option>
+</select>
+
+
+<table border=1 id="result">
+ 
+
+</table>
+
+
+
+</body>
+
+</html>
